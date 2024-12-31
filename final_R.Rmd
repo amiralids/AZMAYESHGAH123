@@ -1,0 +1,197 @@
+---
+title: '4011290754'
+output: html_document
+---
+
+```{r}
+library(car)
+data("Salaries")
+my.id=54+20
+```
+
+Question_one:
+
+```{r}
+set.seed(my.id)
+sample1=sample(Salaries$yrs.service,size = my.id);sample1
+```
+
+```{r}
+set.seed(my.id)
+mean(sample1)
+```
+
+```{r}
+set.seed(my.id)
+median(sample1)
+```
+
+```{r}
+set.seed(my.id)
+sd(sample1)
+```
+
+```{r}
+set.seed(my.id)
+var(sample1)
+```
+
+```{r}
+set.seed(my.id)
+range_value=max(sample1)-min(sample1);range_value
+```
+
+```{r}
+set.seed(my.id)
+quantile(sample1,0.25)
+```
+
+```{r}
+set.seed(my.id)
+quantile(sample1,0.5)
+```
+
+<div style="text-align: right; font-size: 20px; ">
+چارک سوم به این معنی است که 75 درصد داده ها کمتر یا برابر باچارک سوم هستند   
+</div>
+```{r}
+set.seed(my.id)
+quantile(sample1,0.75)
+```
+
+
+```{r}
+library(e1071)
+set.seed(my.id)
+hist(sample1,main="Histogram of Data")
+```
+
+
+<div style="text-align: right; font-size: 20px;">
+در چولگی اگر مقدار مثبت باشد یعنی داده به سمت راست کشیده شده و اگر مقدار منفی باشد یعنی داده ها به سمت چپ کشیده شده اند
+</div>
+```{r}
+set.seed(my.id)
+skewness(sample1)
+```
+
+<div style="text-align: right; font-size: 20px;">
+در کشیدگی اگر مقدار مثبت باشد به این معنی است که توزیع نوک تیز است و اگر مقدار منفی باشد توزیع پهن تر است 
+</div>
+```{r}
+set.seed(my.id)
+kurtosis(sample1)
+```
+
+Question_two:
+
+```{r}
+set.seed(my.id)
+sample_rank=sample(Salaries$rank,size = my.id)
+count_sample_rank=table(sample_rank)
+```
+
+```{r}
+barplot(count_sample_rank,main ="Bar chart of qualitative Data")
+```
+
+```{r}
+pie(count_sample_rank,main ="Pie chart of qualitative Data")
+```
+
+```{r}
+set.seed(my.id)
+sample_salary=sample(Salaries$salary,size = my.id)
+```
+
+
+```{r}
+set.seed(my.id)
+hist(sample_salary,main ="Histogram of Data")
+```
+
+
+```{r}
+set.seed(my.id)
+boxplot(sample_salary,main ="boxplot of Data")
+```
+
+
+```{r}
+set.seed(my.id)
+plot(density(sample_salary),main ="density plot of Data")
+```
+
+Question_three:
+
+```{r}
+set.seed(my.id)
+random_normal_number=rnorm(100,50,10)
+random_normal_number = round(random_normal_number);random_normal_number
+
+```
+
+```{r}
+set.seed(my.id)
+multiple_6=sort(random_normal_number[random_normal_number%%6==0]);multiple_6
+```
+
+Question_four:
+
+```{r}
+set.seed(my.id)
+x= Salaries$salary
+n=length(x)
+
+sum_denominator=function(x) {
+  return(sum(1 / x))
+}
+
+denominator = sum_denominator(x)
+Fx=n/denominator;Fx
+```
+
+Question_five:
+
+```{r}
+set.seed(my.id)
+
+f <- function(x) {
+  return(1+(x^2))
+}
+
+integral_1=integrate(f,0.5,3);integral_1
+```
+
+
+```{r}
+library(pracma)
+set.seed(my.id)
+
+f <- function(x,y) {
+  return(x+(y^2)-1)
+}
+
+integral_2=integral2(f,3,5,0,1);integral_2$Q
+```
+Question_six:
+
+```{r}
+set.seed(my.id)
+matrix_A = matrix(c(1,6,9,2,1,5,4,3,3),nrow=3,ncol=3);matrix_A
+```
+
+```{r}
+set.seed(my.id)
+det(matrix_A)
+```
+
+```{r}
+set.seed(my.id)
+solve(matrix_A)
+```
+
+```{r}
+set.seed(my.id)
+diag(matrix_A)=0;matrix_A
+```
